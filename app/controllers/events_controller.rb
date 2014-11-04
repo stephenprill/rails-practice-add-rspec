@@ -22,7 +22,7 @@ class EventsController < ApplicationController
       :location,
       :date,
       :capacity,
-      :requires_id
+      :requires_id,
     )
     @event = Event.new(event_params)
     @event.save
@@ -36,15 +36,15 @@ class EventsController < ApplicationController
       :location,
       :date,
       :capacity,
-      :requires_id
+      :requires_id,
     )
     @event.update(event_params)
     redirect_to events_path
   end
-  
+
   def destroy
-    @event = Event.find(params[:iid])
-    @event.destroy(event_params)
+    @event = Event.find(params[:id])
+    @event.destroy
     redirect_to events_path
   end
 
